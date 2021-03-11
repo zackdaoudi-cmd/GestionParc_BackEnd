@@ -31,3 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+*.idea
+*.iml
+# Filtrer tous les repertoires target
+/**/target
+# Filtrer tous les fichiers Intellij
+/**/*.iml
