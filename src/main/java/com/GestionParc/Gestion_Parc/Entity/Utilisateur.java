@@ -6,11 +6,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table
-public class User {
+public class Utilisateur {
     @Id
     @GeneratedValue
     private Long idUser;
@@ -20,4 +18,12 @@ public class User {
     private String nomComplet;
     private String email ;
     private String motDePasse;
+
+    public Utilisateur() {
+    }
+
+    public Utilisateur(String email, String motDePasse) {
+        this.email = email;
+        this.motDePasse = motDePasse;
+    }
 }

@@ -20,11 +20,11 @@ public class Vehicule {
     @GeneratedValue
     private Long idVehicule;
 
-    //User qui vas s'authentifier
+    //Utilisateur qui vas s'authentifier
     @ManyToOne
     @JoinColumn(name="idUser")
     @OnDelete(action= OnDeleteAction.CASCADE)
-    private User user ;
+    private Utilisateur utilisateur;
 
     //Contrat
     @OneToMany
