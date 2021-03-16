@@ -19,7 +19,7 @@ public class UtilisateurService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String s) {
         Utilisateur subscriber = loadApplicationUserByUserName(s);
-        return new User(subscriber.getEmail(), subscriber.getMotDePasse(), AuthorityUtils.createAuthorityList("ROLE_ADMIN"));
+        return new User(subscriber.getEmail(), subscriber.getPassword(), AuthorityUtils.createAuthorityList("ROLE_ADMIN"));
     }
 
     public Utilisateur loadApplicationUserByUserName(String username) {
@@ -27,7 +27,7 @@ public class UtilisateurService implements UserDetailsService {
         if (susbcriber == null) {
             throw new UsernameNotFoundException(String.format("No user found with username '%s'.", username));
         } else {
-            return new Utilisateur(susbcriber.getEmail(), susbcriber.getMotDePasse());
+            return new Utilisateur(susbcriber.getEmail(), susbcriber.getPassword());
         }
     }
 }

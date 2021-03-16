@@ -18,4 +18,9 @@ public class Utilisateur {
     private String fullName;
     private String email ;
     private String password;
+
+    public Utilisateur(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
 }
