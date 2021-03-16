@@ -7,35 +7,23 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table
 public class Carburant {
     @Id
-    @GeneratedValue
-
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCarbutant;
-
     @ManyToOne
     @JoinColumn(name="idChauffeur")
-
-    private Chauffeur chauffeur;
-
+    private Chauffeur driver;
     @ManyToOne
     @JoinColumn(name = "idFournisseur")
-
-    private Fournisseur fournisseur;
-
-
-    private LocalDateTime dateCarburant;
-
-
+    private Fournisseur provider;
+    private LocalDateTime dateFuel;
     private Float kilometrate ;
-
-
     private Float nbrLitreGazoil;
+    private Float litrePrice;
+    private String agreementPicturesCarburant ;
 
 
-    private Float prixLitre;
 
-
-    private String photoRecu ;
 }
+

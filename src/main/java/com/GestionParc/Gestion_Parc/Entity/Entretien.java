@@ -12,32 +12,19 @@ import java.util.HashSet;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table
 public class Entretien {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEntretien ;
-
     @ManyToOne
     @JoinColumn(name="idFournisseur")
-
     private Fournisseur fournisseur;
-
     @OneToMany
-    @Getter
-    @Setter
     private Set<Reparation> reparation =  new HashSet<Reparation>();
-
-
-    private String Description;
-
-
-    private LocalDateTime dateEntre ;
-
-
-    private Float cout ;
-
+    private String description;
+    private LocalDateTime dateArrival ;
+    private Float cost ;
     @ManyToOne
     @JoinColumn(name = "idVehicule")
     private Vehicule vehicule;

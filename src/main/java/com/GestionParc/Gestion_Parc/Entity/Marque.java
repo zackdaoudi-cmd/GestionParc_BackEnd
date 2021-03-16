@@ -9,15 +9,13 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table
 public class Marque {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idMarque;
-    private String libelleMarque;
-    private String photoMarque;
-
+    private String markName;
+    private String markPictures;
     @OneToMany
     private Set<Model> model =  new HashSet<Model>();
 }

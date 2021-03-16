@@ -5,7 +5,6 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -14,57 +13,37 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table
 public class Vehicule {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idVehicule;
-
-    //User qui vas s'authentifier
+    //Utilisateur qui vas s'authentifier
     @ManyToOne
     @JoinColumn(name="idUser")
     @OnDelete(action= OnDeleteAction.CASCADE)
-    private User user ;
-
+    private Utilisateur utilisateur;
     //Contrat
     @OneToMany
     private Set<Contrat> contrat = new HashSet<Contrat>(  );
-
-
     //model
     @ManyToOne
     @JoinColumn(name="idModel")
     private Model model ;
-
     //Chauffeur
     @ManyToMany
     private Set<Chauffeur> chauffeur = new HashSet<Chauffeur>(  );
-
     //Entretien
     @ManyToMany
-
     private Set<Entretien> entretien = new HashSet<Entretien>();
-
-
-    private String matricule;
-
-
-    private LocalDateTime datePremierCirculation ;
-
-
+    private String registrationNumber;
+    private LocalDateTime dateFirstCirculation ;
     private String destination;
-
-
-    private String numeroChassis ;
-
-
-    private Float valeurTva ;
-
-
-    private Float valeurDachat;
-
-
-    private Float valeurResiduelle;
+    private String numberChassis ;
+    private Float tvaValue ;
+    // valeur d'achat
+    private Float purchasValue;
+    //valeur Residuelle
+    private Float residualValue;
 
 
 }

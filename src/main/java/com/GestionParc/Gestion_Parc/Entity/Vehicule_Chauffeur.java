@@ -12,22 +12,17 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table
 public class Vehicule_Chauffeur {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long vehiculeChauffeur;
-
     @ManyToOne
     @JoinColumn(name = "idVehicule")
-
-
     private Vehicule vehicule;
-
     @ManyToOne
     @JoinColumn(name = "idChauffeur")
     private Chauffeur chauffeur;
-
-    private LocalDateTime dateAffectation;
+    //Date D'affectation de la vehicule au chauffeur !
+    private LocalDateTime assignmentDate;
 }

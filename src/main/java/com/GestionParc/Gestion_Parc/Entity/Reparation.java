@@ -7,21 +7,14 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table
 public class Reparation {
 
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idReparation;
-
-
-
-    private String libelleReparation ;
-
-
-
-    private String Commantaire;
+    private String labelSupplier ;
+    private String comments;
 
     @ManyToOne
     @JoinColumn(name="idEntretien")

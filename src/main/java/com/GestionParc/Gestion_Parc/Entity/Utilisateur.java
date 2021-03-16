@@ -9,15 +9,13 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table
-public class User {
+public class Utilisateur {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUser;
-
     @OneToMany
     private Set<Vehicule> vehicule = new HashSet<Vehicule>(  );
-    private String nomComplet;
+    private String fullName;
     private String email ;
-    private String motDePasse;
+    private String password;
 }
