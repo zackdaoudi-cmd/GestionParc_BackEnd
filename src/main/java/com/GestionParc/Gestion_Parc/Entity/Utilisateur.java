@@ -6,24 +6,16 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
-@Table
 public class Utilisateur {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUser;
-
     @OneToMany
     private Set<Vehicule> vehicule = new HashSet<Vehicule>(  );
-    private String nomComplet;
+    private String fullName;
     private String email ;
-    private String motDePasse;
-
-    public Utilisateur() {
-    }
-
-    public Utilisateur(String email, String motDePasse) {
-        this.email = email;
-        this.motDePasse = motDePasse;
-    }
+    private String password;
 }

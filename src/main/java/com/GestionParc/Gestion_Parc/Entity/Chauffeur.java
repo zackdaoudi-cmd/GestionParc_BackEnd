@@ -13,22 +13,17 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table
+
 public class Chauffeur {
 
     @Id
-    @GeneratedValue
-
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idChauffeur;
-
     @OneToMany
-
     private Set<Carburant> carburants = new HashSet<Carburant>();
-
-    private  String cin ;
-    private String nomComplet ;
-    private LocalDateTime dateNaissance;
-
+    private  String identityNumber ;
+    private String fullName ;
+    private LocalDateTime birthDate;
     @ManyToMany
-    private Set<Vehicule> contrat = new HashSet<Vehicule>(  );
+    private Set<Vehicule> vehicules = new HashSet<Vehicule>(  );
 }

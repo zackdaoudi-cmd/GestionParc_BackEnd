@@ -11,26 +11,15 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table
+
 public class Fournisseur {
     @Id
-    @GeneratedValue
-
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idFournisseur;
-
     @OneToMany
-
     private Set<Carburant> carburant = new HashSet<Carburant>();
-
     @OneToMany
-
     private Set<Entretien> entretien = new HashSet<Entretien>();
-
-
-
-
-    private String libelleFournisseur ;
-
-
+    private String fullName ;
     private Boolean part_society;
 }

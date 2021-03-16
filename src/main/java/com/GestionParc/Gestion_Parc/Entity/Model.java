@@ -10,21 +10,16 @@ import java.util.HashSet;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table
 public class Model {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idModel;
-
     @ManyToOne
     @JoinColumn(name = "idMarque")
-
     private Marque marque;
-
     @OneToMany
     private Set<Vehicule> vehicule = new HashSet<Vehicule>();
-
-    private String libelleModel;
+    private String modelName;
     private String typeVehicule;
-    private String photo;
+    private String modelPicture;
 }
