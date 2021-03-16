@@ -25,7 +25,8 @@ public class Entretien {
     private String description;
     private LocalDateTime dateArrival ;
     private Float cost ;
-    @ManyToOne
+
+  @ManyToOne
     @JoinColumn(name = "idVehicule")
     private Vehicule vehicule;
 }

@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Entity
 public class Contrat {
-// public class Agreement
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idContrat ;
@@ -20,6 +20,7 @@ public class Contrat {
     @ManyToOne
     @JoinColumn(name="idVehicule")
     private Vehicule vehicule ;
+
     private LocalDateTime startDate;
     private LocalDateTime endDate;
     private String agreementPictures;

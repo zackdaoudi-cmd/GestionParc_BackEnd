@@ -7,8 +7,8 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Reparation {
 
+public class Reparation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,7 +16,7 @@ public class Reparation {
     private String labelSupplier ;
     private String comments;
 
-    @ManyToOne
+  @ManyToOne
     @JoinColumn(name="idEntretien")
     private Entretien entretien;
 

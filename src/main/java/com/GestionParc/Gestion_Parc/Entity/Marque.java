@@ -16,6 +16,7 @@ public class Marque {
     private Long idMarque;
     private String markName;
     private String markPictures;
-    @OneToMany
+    
+  @OneToMany
     private Set<Model> model =  new HashSet<Model>();
 }
