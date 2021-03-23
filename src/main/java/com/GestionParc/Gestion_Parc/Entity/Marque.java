@@ -22,8 +22,6 @@ public class Marque {
 
     private String namePhoto ;
 
-
-
     @OneToMany
     private Set<Model> model =  new HashSet<Model>();
 

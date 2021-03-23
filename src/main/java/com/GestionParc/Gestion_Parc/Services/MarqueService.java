@@ -1,46 +1,20 @@
 package com.GestionParc.Gestion_Parc.Services;
 
-
-import com.GestionParc.Gestion_Parc.Entity.Marque;
-import com.GestionParc.Gestion_Parc.Repository.MarqueRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import javax.transaction.Transactional;
+import com.GestionParc.Gestion_Parc.DTO.MarqueDto;
 import java.util.List;
-import java.util.Optional;
 
-
-@Service
-public class MarqueService {
-
-    @Autowired
-    private  MarqueRepository marqueRepository ;
-
+public interface  MarqueService  {
 
     // add new marque
-    public Marque save(Marque marque){
-        return marqueRepository.save(marque);
-    }
+    MarqueDto save(MarqueDto marque);
 
-    // get list marque
-    public List<Marque> getAllMarque(){
-        return marqueRepository.findAll();
-    }
-
+    List<MarqueDto> findAll();
 
     // delete by id
-    @Transactional
-    public void deleteMarkById(Long id){
-        marqueRepository.deleteByidMarque(id);
-    }
+    void deleteMarkById(Long id);
 
-    public Marque getMarqueById(Long id){
-        return marqueRepository.findByIdMarque(id);
-    }
+    MarqueDto getMarqueById(Long id);
 
     //check if marue exisste
-    public Boolean existe(Long id){
-        return marqueRepository.existsById(id);
-    }
+    Boolean exists(Long id);
 }
