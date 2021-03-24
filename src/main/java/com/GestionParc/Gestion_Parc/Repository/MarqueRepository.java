@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface MarqueRepository extends JpaRepository<Marque,Long> {
 
-    void deleteByidMarque(Long id);
+    void deleteByIdMarque(Long id);
     Marque findByIdMarque(Long id);
     //List<MarqueDto> findAll();
 }

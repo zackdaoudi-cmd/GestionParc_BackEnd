@@ -1,9 +1,9 @@
-package com.GestionParc.Gestion_Parc.Services;
+package com.GestionParc.Gestion_Parc.Services.IService;
 
 import com.GestionParc.Gestion_Parc.DTO.MarqueDto;
 import java.util.List;
 
-public interface  MarqueService  {
+public interface IMarqueService {
 
     // add new marque
     MarqueDto save(MarqueDto marque);
