@@ -10,7 +10,7 @@ import java.util.List;
 
 @Component
 public class MarqueDtoConverter extends BaseDTOConverter<MarqueDto, Marque> {
-    
+
     /**
      * convert Entity To Dto
      * */
