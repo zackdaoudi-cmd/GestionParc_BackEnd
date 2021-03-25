@@ -1,4 +1,4 @@
-package com.GestionParc.Gestion_Parc.DTO.Mapping;
+package com.GestionParc.Gestion_Parc.DTO.DTOConverter;
 
 import com.GestionParc.Gestion_Parc.DTO.Mapping.BaseDtoConvert.BaseDTOConverter;
 import com.GestionParc.Gestion_Parc.DTO.MarqueDto;
@@ -49,4 +49,19 @@ public class MarqueDtoConverter extends BaseDTOConverter<MarqueDto, Marque> {
         }
         return marqueDtoList;
     }
+
+
+    /**
+     * pour convertir que deux column j'ai besoin*/
+    public List<MarqueDto> convertToSimpleListDTO(List<Marque> marqueList){
+        List<MarqueDto> marqueDtoList = new ArrayList<>();
+        for(Marque marque : marqueList){
+            MarqueDto marqueDto = new MarqueDto();
+            marqueDto.setIdMarque(marque.getIdMarque());
+            marqueDto.setMarkName(marque.getMarkName());
+            marqueDtoList.add(marqueDto);
+        }
+        return marqueDtoList;
+    }
+
 }

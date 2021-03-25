@@ -1,7 +1,7 @@
 package com.GestionParc.Gestion_Parc.Services.ServiceImpl;
 
 
-import com.GestionParc.Gestion_Parc.DTO.Mapping.MarqueDtoConverter;
+import com.GestionParc.Gestion_Parc.DTO.DTOConverter.MarqueDtoConverter;
 import com.GestionParc.Gestion_Parc.DTO.MarqueDto;
 import com.GestionParc.Gestion_Parc.Entity.Marque;
 import com.GestionParc.Gestion_Parc.Repository.MarqueRepository;
@@ -25,7 +25,6 @@ public class  MarqueServiceImpl implements IMarqueService {
     // add new marque
     @Override
     public MarqueDto save(MarqueDto marqueDto){
-
         Marque m = marqueDtoConverter.convertToEntity(marqueDto);
         m = marqueRepository.save(m);
         return marqueDtoConverter.convertToDTO(m);
@@ -56,5 +55,13 @@ public class  MarqueServiceImpl implements IMarqueService {
     public Boolean exists(Long id){
         return marqueRepository.existsById(id);
     }
+     /**
+      * Get IdMarque and MArkName
+      * */
+     @Override
+     public List<MarqueDto> listIdMarqueAndMarqueName(){
+         List<Marque> marqueList =marqueRepository.findAll();
+         return marqueDtoConverter.convertToSimpleListDTO(marqueList);
 
+     }
 }

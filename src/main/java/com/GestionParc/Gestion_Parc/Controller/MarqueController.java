@@ -57,10 +57,7 @@ public class MarqueController {
     }
     // get list of marks
     @GetMapping("/listeMarque")
-    public List<MarqueDto> getMarque()
-    {
-        return marqueService.findAll();
-    }
+    public List<MarqueDto> getMarque(){return marqueService.findAll();}
 
     // get mark by id
     @GetMapping("/markById/{id}")
@@ -73,7 +70,13 @@ public class MarqueController {
         }
     }
     @DeleteMapping("/deleteById/{id}")
-    public void deleteMarque(@PathVariable Long id){
-         marqueService.deleteMarkById(id);
-    }
+    public void deleteMarque(@PathVariable Long id){marqueService.deleteMarkById(id);}
+
+    /**
+     * send list of id Marque and Name marka
+     * Obj : pour Remplire le DropDownList Avec L'idMarque et Le markName
+     * */
+    @GetMapping("/listeIdAndName")
+    public List<MarqueDto> getIdAndName() {return marqueService.listIdMarqueAndMarqueName();}
+
 }

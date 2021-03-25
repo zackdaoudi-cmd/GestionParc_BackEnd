@@ -1,5 +1,7 @@
 package com.GestionParc.Gestion_Parc.Entity;
 import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -20,13 +22,13 @@ public class Marque {
     @Column(name="pictures")
     private byte[] data;
 
-    private String namePhoto ;
-
     @OneToMany
     private Set<Model> model =  new HashSet<Model>();
 
-    public Marque(String markNam ,byte[] data) {
+    public Marque(String markName ,byte[] data) {
         this.markName = markName;
         this.data = data;
     }
+
+
 }

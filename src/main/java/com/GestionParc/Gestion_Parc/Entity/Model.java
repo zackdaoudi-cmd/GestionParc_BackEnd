@@ -1,25 +1,35 @@
 package com.GestionParc.Gestion_Parc.Entity;
 import lombok.*;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 
 import javax.persistence.*;
-import java.util.Set;
-import java.util.HashSet;
+import java.util.List;
+
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 public class Model {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idModel;
+
     @ManyToOne
     @JoinColumn(name = "idMarque")
     private Marque marque;
+
     @OneToMany
-    private Set<Vehicule> vehicule = new HashSet<Vehicule>();
+    private List<Vehicule> vehicule ;
     private String modelName;
     private String typeVehicule;
-    private String modelPicture;
+
+    @Lob
+    private byte[] dataImg ;
+
+
 }

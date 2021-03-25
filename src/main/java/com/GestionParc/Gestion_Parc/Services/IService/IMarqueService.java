@@ -17,4 +17,6 @@ public interface IMarqueService {
 
     //check if marue exisste
     Boolean exists(Long id);
+
+    List<MarqueDto> listIdMarqueAndMarqueName();
 }
