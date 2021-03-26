@@ -21,6 +21,7 @@ public class Model {
 
     @ManyToOne
     @JoinColumn(name = "idMarque")
+    @OnDelete (action=OnDeleteAction.CASCADE)
     private Marque marque;
 
     @OneToMany

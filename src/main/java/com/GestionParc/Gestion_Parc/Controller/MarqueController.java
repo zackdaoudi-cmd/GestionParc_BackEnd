@@ -55,6 +55,7 @@ public class MarqueController {
             this.bytes = null;
         }
     }
+
     // get list of marks
     @GetMapping("/listeMarque")
     public List<MarqueDto> getMarque(){return marqueService.findAll();}

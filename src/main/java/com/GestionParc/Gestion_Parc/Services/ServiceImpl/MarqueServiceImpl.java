@@ -62,6 +62,5 @@ public class  MarqueServiceImpl implements IMarqueService {
      public List<MarqueDto> listIdMarqueAndMarqueName(){
          List<Marque> marqueList =marqueRepository.findAll();
          return marqueDtoConverter.convertToSimpleListDTO(marqueList);
-
      }
 }
