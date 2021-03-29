@@ -45,6 +45,5 @@ public class ModelDtoConvert extends BaseDTOConverter<ModelDto, Model> {
             modelDtoList.add(convertToDTO(model));
         }
         return modelDtoList;
-
     }
 }

@@ -78,7 +78,8 @@ public class ModelController {
         model.setModelName(modelDto.getModelName());
         model.setTypeVehicule(modelDto.getTypeVehicule());
         if(bytes ==  null){
-            model.setDataImg(null);
+
+            model.setDataImg(modelDto.getDataImg());
         }else{
             model.setDataImg(this.bytes);
         }

@@ -1,26 +1,18 @@
-package com.GestionParc.Gestion_Parc.Entity;
-import lombok.*;
+package com.GestionParc.Gestion_Parc.DTO;
 
-import javax.persistence.*;
-import java.text.DateFormat;
+import com.GestionParc.Gestion_Parc.Entity.Vehicule;
+import lombok.Data;
+
+import java.sql.Date;
 import java.time.LocalDateTime;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Entity
-public class Contrat {
+public class ContratDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idContrat ;
     private String reference ;
     private String libelleContrat;
-
-    @ManyToOne
-    @JoinColumn(name="idVehicule")
     private Vehicule vehicule ;
-
     private LocalDateTime startDate;
     private LocalDateTime endDate;
     private byte [] agreementPicturesData;
