@@ -12,4 +12,8 @@ public interface IContratService {
     ContratDTO save(ContratDTO contratDTO);
 
     void deletById(Long id);
+
+    ContratDTO update(Long id, ContratDTO contratDTO);
+
+    ContratDTO getContratById(Long id);
 }

@@ -1,6 +1,7 @@
 package com.GestionParc.Gestion_Parc.Controller;
 
 import com.GestionParc.Gestion_Parc.DTO.ContratDTO;
+import com.GestionParc.Gestion_Parc.DTO.ModelDto;
 import com.GestionParc.Gestion_Parc.Services.IService.IContratService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -43,6 +44,24 @@ public class ContratController {
         this.bytes = null;
         contratService.save(contratDTO);
     }
+
     @DeleteMapping("/deleteById/{id}")
     public void deleteById(@PathVariable Long id){ contratService.deletById(id);}
+
+    @PutMapping("/updateById/{id}")
+    public void UpdateById(@PathVariable Long id , @RequestBody ContratDTO contratDTO){
+        if(this.bytes != null){
+            contratDTO.setAgreementPicturesData(this.bytes);
+        }else{
+            this.bytes = null ;
+        }
+        contratService.update(id,contratDTO);
+    }
+    @GetMapping("getById/{id}")
+    public ContratDTO getContratById(@PathVariable Long id ){
+        return contratService.getContratById(id);
+    }
+
 }
+
+

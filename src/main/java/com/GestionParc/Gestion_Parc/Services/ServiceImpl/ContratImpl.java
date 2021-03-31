@@ -43,4 +43,25 @@ public class ContratImpl implements IContratService {
         public void deletById(Long id ){
             contratRepository.deleteById(id);
         }
+
+        @Override
+        public ContratDTO update(Long id, ContratDTO contratDTO){
+            Contrat contrat =  contratRepository.findByIdContrat(id);
+            contrat.setReference(contratDTO.getReference());
+            contrat.setLibelleContrat(contratDTO.getLibelleContrat());
+            contrat.setVehicule(contratDTO.getVehicule());
+            contrat.setStartDate(contratDTO.getStartDate());
+            contrat.setEndDate(contratDTO.getEndDate());
+            contrat.setAgreementPicturesData(contratDTO.getAgreementPicturesData());
+            contrat.setCost(contratDTO.getCost());
+            contrat.setComment(contratDTO.getComment());
+            contratRepository.save(contrat);
+            return contratDTOConverter.convertToDTO(contrat);
+        }
+
+        @Override
+        public ContratDTO getContratById(Long id ){
+          Contrat contrat =  contratRepository.findByIdContrat(id);
+            return contratDTOConverter.convertToDTO(contrat);
+        }
 }
